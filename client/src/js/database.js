@@ -17,9 +17,8 @@ export const putDb = async (content) => {
   const todosDb = await openDB("jate", 1);
   const tx = todosDb.transaction("jate", "readwrite");
   const store = tx.objectStore("jate");
-  const request = store.put({ id: 1, content: content });
-  const res = await request;
-  console.log(res);
+  const res = await store.put({ id: 1, content: content });
+  console.log("Saved to database!");
 };
 
 // TODO: Add logic for a method that gets all the content from the database
